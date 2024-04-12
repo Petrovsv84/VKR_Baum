@@ -37,7 +37,7 @@ def main():
             y_rast_pred= predictRAST(X_ML)
             message = f'Прогнозные значения для:/nМодуль упругости при растяжении, ГПа: {y_upr_pred}/n/nПрочность при растяжении, МПа: {y_rast_pred}'
         except:
-
+            message="ОЙ"
 
         print(x1)
 
