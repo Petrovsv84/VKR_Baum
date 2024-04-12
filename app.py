@@ -1,9 +1,14 @@
 from flask import Flask, render_template,request
+from processing import load_scaler,load_rast,load_upr
 
 app = Flask(__name__)
 
 @app.route('/',methods=['get','post'])#127.0.0.1:5000/
 def main():
+    scaler=load_scaler()
+    pred_rast=load_rast()
+    pred_upr=load_upr()
+
     message="Введите показатели"
     if request.method == 'POST':
         x1 = request.form.get('x1')
@@ -16,7 +21,7 @@ def main():
         x8 = request.form.get('x8')
         x9 = request.form.get('x9')
         x10 = request.form.get('x10')
-        x12 = request.form.get('x11')
+        x11 = request.form.get('x11')
         x12 = request.form.get('x12')
 
         try:
@@ -33,8 +38,8 @@ def main():
             x11=float(x11)
             x12=float(x12)
             X_ML=[x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12]
-            y_upr_pred=predictUPR(X_ML)
-            y_rast_pred= predictRAST(X_ML)
+            y_upr_pred=y_upr_pred(X_ML)
+            y_rast_pred= y_rast_pred(X_ML)
             message = f'Прогнозные значения для:/nМодуль упругости при растяжении, ГПа: {y_upr_pred}/n/nПрочность при растяжении, МПа: {y_rast_pred}'
         except:
             message="ОЙ"
@@ -46,4 +51,4 @@ def main():
 
 
 
-#app.run()
+app.run()
