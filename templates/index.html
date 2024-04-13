@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Прогнозирование показателей</h1>
-    <h2>Прогнозирование "Модуль упругости при растяжении, ГПа" и "Прочность при растяжении, МПа" с использованием алгоритмов машинного обучения</h2>
+    <h2>Прогнозирование "Соотношение матрица-наполнитель" с использованием нейронной сети</h2>
     <p>
         {% if message %}
         {{ message }}
@@ -14,32 +14,31 @@
     </p>
     <form action="" , method="post">
         <p>
-            <label>Соотношение матрица-наполнитель:
-                <input type="text" name="x1">
-            </label>
-        </p>
-        <p>
             <label><br>Плотность, кг/м3:
-                <input type="text" name="x2"></label>
+                <input type="text" name="x1"></label>
         </p>
         <p>
             <label><br>Модуль упругости, ГПа:
-                <input type="text" name="x3"></label>
+                <input type="text" name="x2"></label>
         </p>
         <p>
             <label><br>Количество отвердителя, м.%:
-                <input type="text" name="x4"></label>
+                <input type="text" name="x3"></label>
         </p>
         <p>
             <label><br>Содержание эпоксидных групп,%_2:
-                <input type="text" name="x5"></label>
+                <input type="text" name="x4"></label>
         </p>
         <p>
             <label><br>Температура вспышки, С_2:
-             <input type="text" name="x6"></label>
+             <input type="text" name="x5"></label>
         </p>
         <p>
             <label><br>Поверхностная плотность, г/м2:
+                <input type="text" name="x6"></label>
+        </p>
+        <p>
+            <label><br>Модуль упругости при растяжении, ГПа:
                 <input type="text" name="x7"></label>
         </p>
         <p>
@@ -64,8 +63,5 @@
         </p>
         <p><input type="submit"></p>
     </form>
-
-    <h2>Прогнозирование "Соотношение матрица-наполнитель" </h2>
-
 </body>
 </html>
