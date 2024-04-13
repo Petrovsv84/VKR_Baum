@@ -40,7 +40,7 @@ def main():
             X_matr=[x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12]
             X_matr=scaler(X_matr)
             y_matr_pred=pred_matr.prediction(X_matr)
-            message = f'Прогнозные значения для:/nСоотношение матрица-наполнитель: {y_matr_pred}'
+            message = f'Прогнозные значения для:/nСоотношение матрица-наполнитель: {y_matr_pred[0][0]}'
         except:
             message="ОЙ"
 
@@ -48,4 +48,4 @@ def main():
 
     return render_template("index.html", message=message)
 
-app.run()
+#app.run()
